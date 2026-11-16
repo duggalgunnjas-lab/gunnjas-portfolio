@@ -1,0 +1,233 @@
+/* Colour palette */
+:root {
+  --white: #FFFFFF;
+  --grey: #F3F4F6;
+  --border: #D9DCE1;
+  --charcoal: #1F2328;
+  --muted: #5B616B;
+  --blue: #1E3A8A;
+  --space: 1.5rem;
+}
+
+/* Base */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--charcoal);
+  background: var(--white);
+}
+h1, h2, h3 {
+  font-family: "Source Serif 4", Georgia, serif;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+h1 { font-size: 2.6rem; }
+h2 { font-size: 1.9rem; border-left: 4px solid var(--blue); padding-left: 0.75rem; }
+h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+p { margin: 0 0 1rem; max-width: 65ch; }
+ul { margin: 0; padding-left: 1.2rem; }
+a { color: var(--blue); }
+img { display: block; max-width: 100%; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--space); }
+.gap { margin-top: var(--space); }
+
+/* Keyboard focus */
+a:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 20;
+  padding: 0.75rem 1rem;
+  background: var(--blue);
+  color: var(--white);
+}
+.skip:focus { left: 0; }
+
+/* Navigation (flexbox) */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  text-decoration: none;
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  text-decoration: none;
+}
+.links a:hover { color: var(--blue); text-decoration: underline; }
+
+/* Sections */
+section { padding: 4rem 0; scroll-margin-top: 4rem; }
+.alt { background: var(--grey); }
+
+/* Hero */
+.hero { display: flex; align-items: center; gap: 2.5rem; }
+.hero img {
+  flex: none;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.tagline { font-size: 1.2rem; color: var(--muted); }
+
+/* Buttons */
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 1.25rem;
+  border: 2px solid var(--blue);
+  border-radius: 4px;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn.outline { background: transparent; color: var(--blue); }
+.btn:hover { background: var(--charcoal); border-color: var(--charcoal); color: var(--white); }
+
+/* Cards (grid, flat, no shadows) */
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space); }
+.cards.one { grid-template-columns: 1fr; }
+.cards.three { grid-template-columns: repeat(3, 1fr); }
+.card {
+  padding: var(--space);
+  background: var(--grey);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.alt .card { background: var(--white); }
+.card p { margin-bottom: 0.4rem; }
+.card p:last-child { margin-bottom: 0; }
+.card li { margin-bottom: 0.15rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; }
+.tags li {
+  padding: 0.2rem 0.75rem;
+  background: var(--white);
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  color: var(--blue);
+  font-size: 0.92rem;
+}
+
+/* Resume (on screen) */
+.paper {
+  max-width: 800px;
+  margin-top: var(--space);
+  padding: 2rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+.paper-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.paper-head img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: 4px;
+}
+.paper p { max-width: none; margin-bottom: 0.2rem; }
+.name { font-family: "Source Serif 4", Georgia, serif; font-size: 1.6rem; font-weight: 700; }
+.paper h3 {
+  margin: 1.1rem 0 0.4rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.05rem;
+}
+.paper li { margin-bottom: 0.25rem; }
+
+/* Footer */
+footer { padding: 1.25rem 0; background: var(--charcoal); color: var(--white); }
+footer p { margin: 0; }
+footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--white); }
+footer a:focus-visible { outline-color: var(--white); }
+
+/* Mobile: screens below 700px */
+@media (max-width: 699px) {
+  header { position: static; }
+  section { padding: 2.5rem 0; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .links { width: 100%; }
+  .links a { padding: 0 0.5rem; }
+  .hero { flex-direction: column; align-items: flex-start; gap: var(--space); }
+  .hero img { width: 180px; height: 180px; }
+  .cards, .cards.one, .cards.three { grid-template-columns: 1fr; }
+  .btn { width: 100%; }
+  .paper { padding: 1rem; }
+  .paper-head { flex-direction: column-reverse; align-items: flex-start; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Print: only the resume, black on white, one A4 page */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff; color: #000; font-size: 10pt; line-height: 1.35; }
+  body > header, body > footer, .skip, .screen-only,
+  main > section:not(#resume) { display: none; }
+  #resume { padding: 0; background: #fff; }
+  .wrap { max-width: none; padding: 0; }
+  .paper { max-width: none; margin: 0; padding: 0; border: 0; }
+  .paper, .paper * { background: #fff; color: #000; border-color: #000; }
+  .paper img { width: 70px; height: 70px; filter: grayscale(1); }
+  .name { font-size: 18pt; }
+  .paper h3 { margin-top: 0.7rem; font-size: 11pt; }
+  .paper li { margin-bottom: 0.1rem; }
+}
